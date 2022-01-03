@@ -1,3 +1,11 @@
 <h1>2FA Setup Success</h1>
 
+<p>Save this emergency backup code and store it somewhere safe. If you lose your phone, you can use backup codes to sign in.</p>
+
+<ul>
+  <% @recovery_codes.each do |code| %>
+    <li><%= code %></li>
+  <% end %>
+</ul>
+
 <%= link_to "Done", two_factor_authentication_path %>

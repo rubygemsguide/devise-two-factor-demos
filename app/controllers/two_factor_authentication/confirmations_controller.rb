@@ -2,6 +2,7 @@ class TwoFactorAuthentication::ConfirmationsController < ApplicationController
   def create
     if current_user.validate_and_consume_otp!(params.dig(:otp_code))
       current_user.otp_required_for_login = true
+      @recovery_codes = current_user.generate_otp_backup_codes!
       current_user.save!
   
       render "two_factor_authentication/confirmations/success"
