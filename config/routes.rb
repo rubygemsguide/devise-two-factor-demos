@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   }
   root "home#show"
   resource :dashboard, controller: :dashboard
-  resource :two_factor_authentication do
+  resource :two_factor_authentication, only: [:show, :create, :destroy] do
     scope module: :two_factor_authentication do
-      resource :confirmation
-      resources :recovery_codes
+      resource :confirmation, only: [:create, :show]
+      resources :recovery_codes, only: [:create, :index]
     end
   end
 end
