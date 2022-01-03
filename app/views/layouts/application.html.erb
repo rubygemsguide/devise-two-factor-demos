@@ -11,6 +11,30 @@
   </head>
 
   <body>
+    <header>
+      <h1>
+        <%= link_to '2FA Demo', root_path %>
+      </h1>
+
+      <nav>
+        <% if user_signed_in? %>
+          <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path %>
+        <% end %>
+      </nav>
+    </header>
+
+    <section>
+      <% flash.each do |name, msg| -%>
+        <%= content_tag :dialog, msg, role: name %>
+      <% end %>
+    </section>
+
     <%= yield %>
+
+    <footer>
+      <a href="https://rubygems.guide">RubyGems.Guide</a> - 2FA Demo
+    </footer>
   </body>
 </html>
