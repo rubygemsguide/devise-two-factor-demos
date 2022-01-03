@@ -1,0 +1,2 @@
+module TwoFactorAuthentication::ConfirmationsHelper
+end

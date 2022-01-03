@@ -1,0 +1,2 @@
+class TwoFactorAuthentication::ConfirmationsController < ApplicationController
+end

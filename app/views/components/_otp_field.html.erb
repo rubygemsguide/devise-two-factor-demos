@@ -1,0 +1,26 @@
+<div data-controller="otp-digit-field"
+    data-otp-digit-field-code-length-value="<%= code_length %>">
+  <%= f.hidden_field field_name, id: 'otp-code-field', data: { 'otp-digit-field-target': 'mainField' } %>
+  <div class="otp-digit-fields-container">
+    <% (1..code_length).each do |index| %>
+      <% 
+        on_first = (index == 1)
+        on_last = (index == code_length)
+      %>
+
+      <input
+        type="text"
+        maxLength="1"
+        id="digit-<%= index %>"
+        <%= %Q{data-previous="digit-#{index - 1}"}.html_safe unless on_first %>
+        <%= %Q{data-next="digit-#{index + 1}"}.html_safe unless on_last %>
+        <%= "autofocus" if on_first %>
+        data-action="
+          keydown->otp-digit-field#checkAllowance
+          input->otp-digit-field#handleInputEvent
+          keyup->otp-digit-field#handleKeyUp
+        "
+      >
+    <% end %>
+  </div>
+</div>

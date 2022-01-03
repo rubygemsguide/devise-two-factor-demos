@@ -1,0 +1,20 @@
+<h1>Setup Two-Factor Authentication</h1>
+<p>Use your two-factor authentication app to scan the QR code</p>
+
+<%= @qrcode.as_svg(module_size: 3, fill: "ffffff").html_safe %>
+
+<%= form_with(
+      url: two_factor_authentication_confirmation_path,
+      local: true,
+      method: :post
+) do |f| %>
+  <p>Enter 6-digit code from your two factor authenticator app.</p>
+
+  <%= render 'components/otp_field', f: f, field_name: :otp_code, code_length: 6 %>
+
+  <div>
+    <%= f.button "Confirm and activate", type: :submit %>
+
+    <%= link_to 'Cancel', two_factor_authentication_path %>
+  </div>
+<% end %>

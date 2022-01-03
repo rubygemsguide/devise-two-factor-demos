@@ -12,4 +12,9 @@ class User < ApplicationRecord
          otp_number_of_backup_codes: 12
   
   serialize :otp_backup_codes, Array
+
+  def otp_qrcode
+  provision_uri = otp_provisioning_uri(email, issuer: '2FA-Demo')
+  RQRCode::QRCode.new(provision_uri)
+  end
 end
