@@ -1,0 +1,11 @@
+<h1>Regenerate Recovery Codes Success</h1>
+
+<p>Save this emergency backup code and store it somewhere safe. (All previous codes are expired.)</p>
+
+<ul>
+  <% @recovery_codes.each do |code| %>
+    <li><%= code %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Done", two_factor_authentication_path %>

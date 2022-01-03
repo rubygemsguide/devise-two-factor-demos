@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resource :two_factor_authentication do
     scope module: :two_factor_authentication do
       resource :confirmation
+      resources :recovery_codes
     end
   end
 end

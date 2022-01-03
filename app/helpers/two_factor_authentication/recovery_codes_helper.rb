@@ -1,0 +1,2 @@
+module TwoFactorAuthentication::RecoveryCodesHelper
+end
