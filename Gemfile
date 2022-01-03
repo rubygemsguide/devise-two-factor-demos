@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'importmap-rails', '~> 1.0'
 gem 'stimulus-rails', '~> 1.0'
+gem 'devise', '~> 4.8'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
