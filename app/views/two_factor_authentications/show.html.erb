@@ -2,7 +2,11 @@
 
 <h2>Authenticator app</h2>
 
-<%= button_to 'Enable', two_factor_authentication_path, method: :post %>
+<% if current_user.otp_required_for_login %>
+  <%= button_to "Disable", two_factor_authentication_path, method: :delete %>
+<% else %>
+  <%= button_to 'Enable', two_factor_authentication_path, method: :post %>
+<% end %>
 
 <% if current_user.otp_required_for_login %>
   <h2>Recovery codes</h2>
