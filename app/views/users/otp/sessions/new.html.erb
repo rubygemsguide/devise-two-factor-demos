@@ -1,0 +1,14 @@
+<h1>Authenticate your account</h1>
+
+<%= form_with(
+      url: users_sign_in_otp_path,
+      scope: :user,
+      method: :post,
+      local: true
+) do |f| %>
+  <p>Enter 6-digit code from your two factor authenticator app.</p>
+
+  <%= render 'components/otp_field', f: f, field_name: :otp_attempt, code_length: 6 %>
+
+  <%= f.submit 'Verify' %>
+<% end %>
