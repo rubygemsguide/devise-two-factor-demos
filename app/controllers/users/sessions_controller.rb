@@ -15,6 +15,7 @@ class Users::SessionsController < Devise::SessionsController
     if resource.otp_required_for_login?
       sign_out(resource)
       session[:otp_user_id] = resource.id
+      session[:otp_user_id_expires_at] = 30.seconds.after
 
       redirect_to users_sign_in_otp_path
     else
