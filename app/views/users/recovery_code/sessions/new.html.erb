@@ -1,0 +1,14 @@
+<h1>Authenticate your account with a recovery code</h1>
+
+<%= form_with(
+      url: users_sign_in_recovery_code_path,
+      scope: :user,
+      method: :post,
+      local: true
+) do |f| %>
+  <p>To access your account, enter one of the recovery codes you saved when you set up your two-factor authentication device.</p>
+
+  <%= render 'components/otp_field', f: f, field_name: :recovery_code, code_length: 8 %>
+
+  <%= f.submit 'Verify' %>
+<% end %>

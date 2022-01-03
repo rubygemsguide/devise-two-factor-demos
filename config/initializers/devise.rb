@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require Rails.root.join("lib/devise-two-factor/strategies/otp_attempt_authenticatable.rb")
+require Rails.root.join("lib/devise-two-factor/strategies/recovery_code_authenticatable.rb")
 
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others

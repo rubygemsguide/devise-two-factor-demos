@@ -10,5 +10,10 @@
 
   <%= render 'components/otp_field', f: f, field_name: :otp_attempt, code_length: 6 %>
 
+  <div>
+    <p>Don't have your phone?</p>
+    <%= link_to "Use a recovery code to access your account.", users_sign_in_recovery_code_path %>
+  </div>
+
   <%= f.submit 'Verify' %>
 <% end %>
